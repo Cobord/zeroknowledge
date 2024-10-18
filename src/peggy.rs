@@ -26,6 +26,7 @@ where
         PeggyGaveThis2 = PeggyGaveThis2,
     >,
 {
+    #[allow(clippy::unused_async)]
     pub async fn give_victor_interface(&self) -> MyInterface {
         todo!()
     }

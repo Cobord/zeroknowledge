@@ -64,7 +64,7 @@ where
     }
 
     async fn do_one_round(&mut self) -> bool {
-        let _ = self.asker.peggy_prepare().await;
+        let () = self.asker.peggy_prepare().await;
         let my_aux_data = self.asker.ask_peggy_aux().await;
         let do_1: bool = true;
         if do_1 {
@@ -77,11 +77,11 @@ where
     }
 
     #[allow(dead_code)]
-    /// Ok(n) if peggy probably knows
+    /// `Ok(n)` if peggy probably knows
     /// probability of a false positive <= 1/2^n
-    /// Err(_) if peggy responded with something wrong
+    /// `Err(_)` if peggy responded with something wrong
     /// that she would have surely gotten right if she knew
-    /// we have that extra current_confidence if we want to call this multiple times
+    /// we have that extra `current_confidence` if we want to call this multiple times
     /// like we first get a 7/8 probability that Peggy knows
     /// then later decide that isn't good enough and want to do a few more rounds
     pub async fn peggy_does_know(
